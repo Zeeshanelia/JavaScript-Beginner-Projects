@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <head> <h1> Words & Character Counter App </h1>
+        <textarea name="App" id="text-box" cols="30" rows="10"></textarea>
+        <p> <span id="Words">0</span> Word  &    
+            <span id="Character">0</span>  Character
+        </p>
+    </head>
+
+    <style>
+        body{
+            padding: 50px 370px;
+        }
+        h1,p {
+            text-align: center;
+            background-color: aqua;
+            margin: 0;
+            padding: 10px;
+            font-size: 25px;
+            font-weight: 100;
+        }
+        #text-box{
+            width: 99%;
+            margin: 0 0 -5px 0;
+        }
+    </style>
+
+    <script>
+        var textBox = document.getElementById('text-box');
+        textBox.addEventListener('input', function (){
+            let text = this.value;
+            var char = text.length;
+
+        document.getElementById("Character").innerHTML = char;
+
+        text = text.trim();
+        let word = text.split (" ");
+        let cleanList = word.filter(function (element) {
+            return element != "";
+        });
+
+        console.log (cleanList);
+        document.getElementById("Words").innerHTML = cleanList.length;
+        });
+
+
+    </script>
+</body>
+</html>
